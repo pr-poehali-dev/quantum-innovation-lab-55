@@ -1,6 +1,5 @@
 ""
 
-import { useState } from "react"
 import { GodRays } from "@paper-design/shaders-react"
 import Icon from "@/components/ui/icon"
 
@@ -57,14 +56,6 @@ const methods = [
 ]
 
 export default function Hero() {
-  const [email, setEmail] = useState("")
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email) setSubmitted(true)
-  }
-
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -201,46 +192,24 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Email Form */}
-        <div id="get-guide" className="bg-[#0D1B2E] rounded-2xl p-8 sm:p-12 text-center">
-          {!submitted ? (
-            <>
-              <span className="text-[10px] font-mono uppercase tracking-[0.15em] text-white/40">
-                Получить полное руководство
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-semibold text-white tracking-[-0.03em] mt-3 mb-3">
-                Пришлём PDF на вашу почту
-              </h2>
-              <p className="text-white/50 mb-8 max-w-md mx-auto leading-[160%]">
-                Все 7 методик, шаблоны для работы и чек-листы — в одном документе. Бесплатно.
-              </p>
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="ваш@email.com"
-                  className="flex-1 px-4 py-3 rounded-full bg-white/10 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-white/20 text-sm"
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-3 rounded-full bg-white text-[#0D1B2E] font-semibold text-sm hover:bg-white/90 transition-colors whitespace-nowrap"
-                >
-                  Получить PDF
-                </button>
-              </form>
-              <p className="text-[11px] text-white/25 mt-4">Без спама. Данные не передаются третьим лицам.</p>
-            </>
-          ) : (
-            <div className="py-4">
-              <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
-                <Icon name="Check" size={24} className="text-white" />
-              </div>
-              <h3 className="text-2xl font-semibold text-white mb-2">Отлично!</h3>
-              <p className="text-white/60">Руководство отправлено на {email}</p>
-            </div>
-          )}
+        {/* Final CTA */}
+        <div className="bg-[#0D1B2E] rounded-2xl p-8 sm:p-12 text-center">
+          <span className="text-[10px] font-mono uppercase tracking-[0.15em] text-white/40">
+            Result-Driven Business
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-white tracking-[-0.03em] mt-3 mb-4">
+            Готовы внедрить методологию?
+          </h2>
+          <p className="text-white/50 max-w-md mx-auto leading-[160%] mb-8">
+            Свяжитесь с нами — разберём вашу воронку по методике RDB и найдём точки роста конверсии.
+          </p>
+          <a
+            href="mailto:hello@rdb.ru"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white text-[#0D1B2E] font-semibold text-sm hover:bg-white/90 transition-colors"
+          >
+            <Icon name="Mail" size={16} />
+            Написать нам
+          </a>
         </div>
       </div>
     </div>
